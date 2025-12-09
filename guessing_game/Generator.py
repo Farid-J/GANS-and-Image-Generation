@@ -3,11 +3,6 @@ import torch.nn as nn
 from torchvision.utils import save_image
 import os
 
-
-# ---------------------------------------
-#  DCGAN Generator (Your Exact Code)
-# ---------------------------------------
-
 class Generator(nn.Module):
     def __init__(self, z_dim):
         super().__init__()
@@ -34,11 +29,6 @@ class Generator(nn.Module):
 
     def forward(self, z):
         return self.main(z)
-
-
-# ---------------------------------------
-#  Generate Flower Images Locally
-# ---------------------------------------
 
 def generate_samples(generator_path="generator.pth", 
                      num_images=8, 
@@ -69,11 +59,6 @@ def generate_samples(generator_path="generator.pth",
             save_image(img, f"{out_dir}/flower_{i}.png", normalize=True)
 
         print(f"Saved {num_images} images → {out_dir}/")
-
-
-# ---------------------------------------
-#  Run the generator
-# ---------------------------------------
 
 if __name__ == "__main__":
     generate_samples(
