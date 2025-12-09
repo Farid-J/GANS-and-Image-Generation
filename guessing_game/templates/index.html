@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>64x64 Flower Guessing Game</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>64x64 Flower Guessing Game</h1>
+        <p id="instructions">Click "Start Game" to begin. Guess if the tiny flower is Real or Fake!</p>
+        <div id="game-area" style="display: none;">
+            <p id="round-info">Round 1 of 10</p>
+            <img id="flower-img" src="" alt="Flower Image" width="400" height="400">
+            <div class="buttons">
+                <button id="btn-real">Real</button>
+                <button id="btn-fake">Fake</button>
+            </div>
+            <p id="result"></p>
+            <p id="score">Score: 0 / 10</p>
+        </div>
+        <button id="btn-start">Start Game</button>
+        <button id="btn-next" style="display: none;">Next Round</button>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
