@@ -13,7 +13,6 @@ from Generator import Generator
 app = Flask(__name__)
 app.secret_key = 'super_secret_key'
 
-# Paths
 MODEL_PATH = "generator.pth"
 REAL_FOLDER = "real_flowers"
 TEMP_IMG_FOLDER = "static/temp_images" 
@@ -22,13 +21,11 @@ os.makedirs(TEMP_IMG_FOLDER, exist_ok=True)
 DISPLAY_SIZE = 400  
 
 def upscale_for_display(img_path):
-    """Take a 64x64 image and upscale it nicely for display"""
     img = Image.open(img_path).convert("RGB")
     img = img.resize((DISPLAY_SIZE, DISPLAY_SIZE), Image.LANCZOS)
     img.save(img_path) 
 
 def degrade_real_image(img_path):
-    """Make real images look as bad as early 2016 GANs"""
     img = Image.open(img_path).convert("RGB")
     
     img = img.resize((64, 64), Image.BICUBIC)
@@ -79,7 +76,6 @@ def get_fake_flower():
     temp_path = os.path.join(TEMP_IMG_FOLDER, unique_name)
     save_image(img_tensor, temp_path, normalize=True)
     
-    #upscale_for_display(temp_path) 
     return unique_name
 
 def cleanup_temp_images():

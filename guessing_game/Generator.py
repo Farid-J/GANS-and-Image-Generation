@@ -35,26 +35,20 @@ def generate_samples(generator_path="generator.pth",
                      z_dim=100, 
                      out_dir="generated_flowers"):
 
-        # Create output folder
         os.makedirs(out_dir, exist_ok=True)
 
-        # CPU/GPU choice (desktop friendly)
         device = "cuda" if torch.cuda.is_available() else "cpu"
         print("Using device:", device)
 
-        # Load generator
         gen = Generator(z_dim).to(device)
         gen.load_state_dict(torch.load(generator_path, map_location=device))
         gen.eval()
 
-        # Create noise vectors
         z = torch.randn(num_images, z_dim, 1, 1, device=device)
 
-        # Generate fake flowers
         with torch.no_grad():
             fake_imgs = gen(z)
 
-        # Save each image
         for i, img in enumerate(fake_imgs):
             save_image(img, f"{out_dir}/flower_{i}.png", normalize=True)
 
@@ -62,7 +56,7 @@ def generate_samples(generator_path="generator.pth",
 
 if __name__ == "__main__":
     generate_samples(
-        generator_path="generator.pth",  # <-- your model path
+        generator_path="generator.pth", 
         num_images=12,
         z_dim=100
     )
