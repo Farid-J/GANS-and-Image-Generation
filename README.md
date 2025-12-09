@@ -3,4 +3,4 @@ This project is a PyTorch implementation of a deep convolutional generative adve
 ## Optimization at a Glance
 ![training gif](/epoches.gif)
 
-# Presentation of project: https://youtu.be/v3Z0_AKazx4
+Presentation of project: https://youtu.be/v3Z0_AKazx4
